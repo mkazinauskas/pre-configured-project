@@ -1,8 +1,3 @@
-jar {
-    baseName = 'project-a-domain'
-    version = '0.0.1-SNAPSHOT'
-}
-
 dependencies {
     compile libs.boot.jpa
     testCompile libs.h2database
