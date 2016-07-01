@@ -1,0 +1,19 @@
+ext.libs = [
+        boot      : [
+                starter     : 'org.springframework.boot:spring-boot-starter',
+                devTools    : 'org.springframework.boot:spring-boot-devtools',
+                web         : 'org.springframework.boot:spring-boot-starter-web',
+                jpa         : 'org.springframework.boot:spring-boot-starter-data-jpa',
+                zuul        : 'org.springframework.cloud:spring-cloud-starter-zuul',
+                eurekaServer: 'org.springframework.cloud:spring-cloud-starter-eureka-server',
+                test        : [
+                        starter: 'org.springframework.boot:spring-boot-starter-test'
+                ]
+        ],
+        cloud     : [
+                dependencies: "org.springframework.cloud:spring-cloud-dependencies:Brixton.RELEASE"
+        ],
+        groovy    : 'org.codehaus.groovy:groovy-all:2.4.7',
+        h2database: 'com.h2database:h2'
+
+]

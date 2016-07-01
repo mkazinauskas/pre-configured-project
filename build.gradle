@@ -14,12 +14,17 @@ buildscript {
     }
 }
 
+apply from: 'gradle/libs.gradle'
+
+ext.runnableProjects = [project(':gateway'),
+                        project(':service-discovery'),
+                        project(':project-a:web')]
+
 subprojects {
     apply plugin: 'java'
     apply plugin: 'groovy'
     apply plugin: 'idea'
     apply plugin: 'spring-boot'
-
 
     sourceCompatibility = 1.8
     targetCompatibility = 1.8
@@ -52,13 +57,29 @@ subprojects {
     }
 
     dependencies {
-        compile('org.springframework.boot:spring-boot-starter')
-        testCompile('org.springframework.boot:spring-boot-starter-test')
+        compile libs.boot.starter
+        compile libs.boot.devTools
+        compile libs.groovy
+
+        testCompile libs.boot.test.starter
     }
 
     dependencyManagement {
         imports {
-            mavenBom "org.springframework.cloud:spring-cloud-dependencies:Brixton.RELEASE"
+            mavenBom libs.cloud.dependencies
         }
     }
+}
+
+configure(runnableProjects) {
+    springBoot {
+        bootRepackage.enabled = true
+    }
+}
+
+configure(subprojects - runnableProjects) {
+    springBoot {
+        bootRepackage.enabled = false
+    }
+    tasks.remove(bootRun)
 }

@@ -4,5 +4,6 @@ jar {
 }
 
 dependencies {
-    compile('org.springframework.boot:spring-boot-starter-web')
+    compile project(':project-a:service')
+    compile libs.boot.web
 }
