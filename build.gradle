@@ -25,6 +25,7 @@ subprojects {
     apply plugin: 'groovy'
     apply plugin: 'idea'
     apply plugin: 'spring-boot'
+    apply plugin: 'checkstyle'
 
     sourceCompatibility = 1.8
     targetCompatibility = 1.8
@@ -69,17 +70,19 @@ subprojects {
             mavenBom libs.cloud.dependencies
         }
     }
+
+    checkstyle {
+        configFile = new File(rootDir, "checkstyle.xml")
+    }
 }
 
 configure(runnableProjects) {
-    springBoot {
-        bootRepackage.enabled = true
-    }
+
 }
 
 configure(subprojects - runnableProjects) {
     springBoot {
         bootRepackage.enabled = false
     }
-    tasks.remove(bootRun)
+//    tasks.remove(bootRun)
 }
