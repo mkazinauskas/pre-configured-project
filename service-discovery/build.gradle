@@ -1,6 +1,5 @@
 jar {
 	baseName = 'service-discovery'
-	version = '0.0.1-SNAPSHOT'
 }
 
 dependencies {

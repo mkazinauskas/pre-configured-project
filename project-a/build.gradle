@@ -1,0 +1,24 @@
+jar {
+    baseName = 'project-a'
+}
+
+configure(project(':project-a:domain')) {
+    dependencies {
+        compile libs.boot.jpa
+        runtime libs.mysqlConnector
+        testCompile libs.h2database
+    }
+}
+
+configure(project(':project-a:service')) {
+    dependencies {
+        compile project(':project-a:domain')
+    }
+}
+
+configure(project(':project-a:web')) {
+    dependencies {
+        compile project(':project-a:service')
+        compile libs.boot.web
+    }
+}

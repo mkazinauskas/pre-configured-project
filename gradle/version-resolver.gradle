@@ -1,0 +1,41 @@
+apply plugin: 'com.palantir.git-version'
+apply plugin: 'maven'
+
+jar {
+    version = generateVersion()
+}
+
+repositories {
+    maven {
+        url "${nexusUrl}/content/groups/public"
+    }
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: "${nexusUrl}/maven-releases") {
+                authentication(userName: nexusUsername, password: nexusPassword)
+            }
+            snapshotRepository(url: "${nexusUrl}/maven-snapshots") {
+                authentication(userName: nexusUsername, password: nexusPassword)
+            }
+        }
+    }
+}
+
+def generateVersion() {
+    def version = gitVersion()
+    println version
+    if (project.hasProperty('versionType')) {
+        version += '-' + project.property('versionType')
+    } else {
+        version += '-RELEASE'
+    }
+    return version
+}
+
+task(createVersionInfo) << {
+    File file = new File('version.info')
+    file.write(generateVersion())
+}
