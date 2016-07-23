@@ -1,2 +1,2 @@
 include 'gateway', 'service-discovery'
-include 'project-a:domain', 'project-a:service', 'project-a:web'
+include 'project-a', 'project-a:domain', 'project-a:service', 'project-a:web'

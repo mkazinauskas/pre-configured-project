@@ -10,9 +10,14 @@ configure(runnableProjects) {
         executable = true
     }
 }
+
 configure(subprojects - runnableProjects) {
+    jar {
+        enabled = false
+    }
     bootRepackage {
         enabled = false
         executable = false
+        withJarTask = jar
     }
 }
