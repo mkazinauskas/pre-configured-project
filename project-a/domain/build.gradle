@@ -1,4 +1,5 @@
 dependencies {
     compile libs.boot.jpa
+    compile libs.h2database
     testCompile libs.h2database
 }

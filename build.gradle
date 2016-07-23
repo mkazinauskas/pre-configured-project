@@ -90,12 +90,21 @@ subprojects {
 }
 
 configure(runnableProjects) {
-
+    springBoot {
+        executable = true
+    }
+    bootRepackage {
+        withJarTask = jar
+    }
 }
 
 configure(subprojects - runnableProjects) {
     springBoot {
         bootRepackage.enabled = false
+        executable = false
     }
-//    tasks.remove(bootRun)
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.13'
 }
