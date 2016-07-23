@@ -1,0 +1,7 @@
+apply plugin: 'findbugs'
+
+findbugs {
+    ignoreFailures = true
+    effort = 'min'
+    reportLevel = 'high'
+}

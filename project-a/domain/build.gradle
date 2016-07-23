@@ -1,5 +1,5 @@
 dependencies {
     compile libs.boot.jpa
-    compile libs.h2database
+    runtime libs.mysqlConnector
     testCompile libs.h2database
 }

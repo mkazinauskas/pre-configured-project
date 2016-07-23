@@ -15,93 +15,27 @@ buildscript {
 }
 
 apply from: 'gradle/libs.gradle'
+apply from: 'gradle/subprojects.gradle'
 
 ext.runnableProjects = [project(':gateway'),
                         project(':service-discovery'),
                         project(':project-a:web')]
 
-subprojects {
-    apply plugin: 'java'
-    apply plugin: 'groovy'
-    apply plugin: 'idea'
-    apply plugin: 'spring-boot'
-    apply plugin: 'checkstyle'
-    apply plugin: 'findbugs'
-
-    sourceCompatibility = 1.8
-    targetCompatibility = 1.8
-
-    sourceSets {
-        main {
-            java {
-                srcDirs = []
-            }
-            groovy {
-                srcDirs += ['src/main/groovy', 'src/main/java']
-            }
-        }
-
-        test {
-            java {
-                srcDirs = []
-            }
-            groovy {
-                srcDirs += ['src/test/groovy', 'src/test/java']
-            }
-        }
-    }
-
-    repositories {
-        mavenCentral()
-        maven { url "https://repo.spring.io/snapshot" }
-        maven { url "https://repo.spring.io/milestone" }
-        maven { url 'https://plugins.gradle.org/m2/' }
-    }
-
-    dependencies {
-        compile libs.boot.starter
-        compile libs.boot.devTools
-        compile libs.groovy
-
-        testCompile libs.boot.test.starter
-    }
-
-    dependencyManagement {
-        imports {
-            mavenBom libs.cloud.dependencies
-        }
-    }
-
-    checkstyle {
-        configFile = new File(rootDir, "checkstyle.xml")
-    }
-
-    findbugs {
-        ignoreFailures = true
-        effort = 'min'
-        reportLevel = 'high'
-    }
-    tasks.withType(FindBugs) {
-        reports {
-            xml.enabled false
-            html.enabled true
-        }
-    }
-}
-
 configure(runnableProjects) {
     springBoot {
-        executable = true
-    }
-    bootRepackage {
-        withJarTask = jar
+        bootRepackage {
+            withJarTask = jar
+            executable = true
+        }
     }
 }
 
 configure(subprojects - runnableProjects) {
     springBoot {
-        bootRepackage.enabled = false
-        executable = false
+        bootRepackage{
+            enabled = false
+            executable = false
+        }
     }
 }
 
