@@ -5,7 +5,7 @@ jar {
 configure(project(':project-a:domain')) {
     dependencies {
         compile libs.boot.jpa
-        runtime libs.mysqlConnector
+        compile libs.h2database
         testCompile libs.h2database
     }
 }
@@ -20,5 +20,6 @@ configure(project(':project-a:web')) {
     dependencies {
         compile project(':project-a:service')
         compile libs.boot.web
+        compile libs.boot.undertow
     }
 }

@@ -3,6 +3,7 @@ ext.libs = [
                 starter     : 'org.springframework.boot:spring-boot-starter',
                 devTools    : 'org.springframework.boot:spring-boot-devtools',
                 web         : 'org.springframework.boot:spring-boot-starter-web',
+                undertow    : 'org.springframework.boot:spring-boot-starter-undertow',
                 jpa         : 'org.springframework.boot:spring-boot-starter-data-jpa',
                 zuul        : 'org.springframework.cloud:spring-cloud-starter-zuul',
                 eurekaServer: 'org.springframework.cloud:spring-cloud-starter-eureka-server',

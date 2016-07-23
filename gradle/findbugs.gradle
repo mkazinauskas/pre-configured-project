@@ -5,3 +5,10 @@ findbugs {
     effort = 'min'
     reportLevel = 'high'
 }
+
+tasks.withType(FindBugs) {
+    reports {
+        xml.enabled false
+        html.enabled true
+    }
+}
