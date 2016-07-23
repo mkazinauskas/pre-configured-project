@@ -1,0 +1,18 @@
+ext.runnableProjects = [project(':gateway'),
+                        project(':service-discovery'),
+                        project(':project-a:web')]
+
+configure(runnableProjects) {
+    apply from: "${rootDir}/gradle/archives-upload.gradle"
+
+    bootRepackage {
+        withJarTask = jar
+        executable = true
+    }
+}
+configure(subprojects - runnableProjects) {
+    bootRepackage {
+        enabled = false
+        executable = false
+    }
+}
