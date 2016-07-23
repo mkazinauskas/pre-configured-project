@@ -1,8 +1,13 @@
-apply plugin: 'com.palantir.git-version'
 apply plugin: 'maven'
+apply from: "${rootDir}/gradle/helpers/git-version.gradle"
 
 jar {
     version = generateVersion()
+}
+
+task(createVersionInfo) << {
+    File file = new File('version.info')
+    file.write(generateVersion())
 }
 
 repositories {
@@ -24,18 +29,3 @@ uploadArchives {
     }
 }
 
-def generateVersion() {
-    def version = gitVersion()
-    println version
-    if (project.hasProperty('versionType')) {
-        version += '-' + project.property('versionType')
-    } else {
-        version += '-RELEASE'
-    }
-    return version
-}
-
-task(createVersionInfo) << {
-    File file = new File('version.info')
-    file.write(generateVersion())
-}

@@ -12,7 +12,6 @@ buildscript {
 
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-        classpath 'gradle.plugin.com.palantir.gradle.gitversion:gradle-git-version:0.5.2'
     }
 }
 
