@@ -1,6 +1,6 @@
 gradle.allprojects {
     ext.generateVersion = {
-        String version = getGitVersion() + '-' + checkIfGitRepositoryIsDirty()
+        String version = getGitVersion() + checkIfGitRepositoryIsDirty()
         if (project.hasProperty('versionType')) {
             version += '-' + project.property('versionType')
         } else {
@@ -22,9 +22,8 @@ def getGitVersion() {
 def checkIfGitRepositoryIsDirty() {
     def result = new ByteArrayOutputStream()
     exec {
-        commandLine 'git', 'status', '--porcelain'
+        commandLine 'git', 'status', '--porcelain', '--untracked-files=no'
         standardOutput = result
     }
-    println(result)
-    return result.toString().size() > 0 ? 'dirty' : ''
+    return result.toString().trim().size() > 0 ? '-dirty' : ''
 }

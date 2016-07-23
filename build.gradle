@@ -23,7 +23,7 @@ ext.runnableProjects = [project(':gateway'),
                         project(':project-a:web')]
 
 configure(runnableProjects) {
-    apply from: "${rootDir}/gradle/version-resolver.gradle"
+    apply from: "${rootDir}/gradle/archives-upload.gradle"
 
     springBoot {
         bootRepackage {
