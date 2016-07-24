@@ -12,7 +12,7 @@ configure(project(':project-a:service')) {
     }
 }
 
-configure(project(':project-a:web')) {
+configure(project(':project-a:api')) {
     dependencies {
         compile project(':project-a:service')
         compile libs.boot.web
@@ -21,5 +21,5 @@ configure(project(':project-a:web')) {
 }
 
 dependencies {
-    compile project(':project-a:web')
+    compile project(':project-a:api')
 }
