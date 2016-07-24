@@ -19,3 +19,7 @@ configure(project(':project-a:web')) {
         compile libs.boot.undertow
     }
 }
+
+dependencies {
+    compile project(':project-a:web')
+}
