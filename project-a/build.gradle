@@ -20,6 +20,12 @@ configure(project(':project-a:api')) {
     }
 }
 
+configure(project(':project-a:application')) {
+    dependencies {
+        compile project(':project-a:api')
+    }
+}
+
 dependencies {
-    compile project(':project-a:api')
+    compile project(':project-a:application')
 }
