@@ -21,6 +21,10 @@ configure(project(':project-a:api')) {
 }
 
 configure(project(':project-a:application')) {
+    jar{
+        baseName = 'project-a'
+    }
+
     dependencies {
         compile project(':project-a:api')
     }
