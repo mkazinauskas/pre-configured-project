@@ -1,5 +1,9 @@
+ext {
+    spock_version = '1.0-groovy-2.4'
+}
+
 ext.libs = [
-        boot          : [
+        boot              : [
                 starter     : 'org.springframework.boot:spring-boot-starter',
                 devTools    : 'org.springframework.boot:spring-boot-devtools',
                 web         : 'org.springframework.boot:spring-boot-starter-web',
@@ -11,11 +15,14 @@ ext.libs = [
                         starter: 'org.springframework.boot:spring-boot-starter-test'
                 ]
         ],
-        cloud         : [
+        cloud             : [
                 dependencies: "org.springframework.cloud:spring-cloud-dependencies:Brixton.RELEASE"
         ],
-        groovy        : 'org.codehaus.groovy:groovy-all:2.4.7',
-        h2database    : 'com.h2database:h2',
-        mysqlConnector: 'mysql:mysql-connector-java'
+        groovy            : 'org.codehaus.groovy:groovy-all:2.4.7',
+        h2database        : 'com.h2database:h2',
+        mysqlConnector    : 'mysql:mysql-connector-java',
+        hibernateValidator: 'org.hibernate:hibernate-validator',
+        spock_core        : "org.spockframework:spock-core:${spock_version}",
+        spock_spring      : "org.spockframework:spock-spring:${spock_version}",
 
 ]

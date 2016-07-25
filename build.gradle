@@ -15,6 +15,14 @@ buildscript {
     }
 }
 
+apply plugin: 'idea'
+
+idea {
+    project {
+        vcs = 'Git'
+    }
+}
+
 apply from: "${rootDir}/gradle/libs.gradle"
 apply from: "${rootDir}/gradle/subprojects.gradle"
 apply from: "${rootDir}/gradle/project-config.gradle"
