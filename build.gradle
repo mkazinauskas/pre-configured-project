@@ -20,6 +20,8 @@ apply plugin: 'idea'
 idea {
     project {
         vcs = 'Git'
+        jdkName = '1.8'
+        languageLevel = '1.8'
     }
 }
 
