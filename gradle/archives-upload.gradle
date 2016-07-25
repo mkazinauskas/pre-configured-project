@@ -3,6 +3,9 @@ apply from: "${rootDir}/gradle/helpers/git-version.gradle"
 
 jar {
     version = generateVersion()
+    manifest {
+        attributes 'Implementation-Version': generateVersion()
+    }
 }
 
 task(createVersionInfo) << {
