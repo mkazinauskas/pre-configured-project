@@ -26,7 +26,7 @@ subprojects {
                 srcDirs = []
             }
             groovy {
-                srcDirs = ['src/test/groovy']
+                srcDirs += ['src/test/groovy', 'src/test/java']
             }
         }
     }
