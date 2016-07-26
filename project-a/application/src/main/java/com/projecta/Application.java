@@ -20,11 +20,6 @@ public class Application {
 
     @Bean
     public CommandLineRunner init() {
-        return new CommandLineRunner() {
-            @Override
-            public void run(String... args) throws Exception {
-                userRepository.save(new User("test@email.com"));
-            }
-        };
+        return args -> userRepository.save(new User("test@email.com"));
     }
 }
