@@ -41,7 +41,3 @@ configure(project(':project-a:application')) {
         }
     }
 }
-
-dependencies {
-    compile project(':project-a:application')
-}

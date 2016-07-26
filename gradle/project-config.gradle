@@ -9,6 +9,12 @@ configure(runnableProjects) {
         withJarTask = jar
         executable = true
     }
+
+    afterEvaluate {
+        task buildAll {
+            dependsOn build
+        }
+    }
 }
 
 configure(subprojects - runnableProjects) {
