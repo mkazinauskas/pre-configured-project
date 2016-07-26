@@ -1,6 +1,6 @@
 configure(project(':project-a:domain')) {
     dependencies {
-        compile libs.boot.jpa
+        compile libs.boot.starter.jpa
         compile libs.hibernateValidator
         compile libs.h2database
         testCompile libs.h2database
@@ -16,8 +16,8 @@ configure(project(':project-a:service')) {
 configure(project(':project-a:api')) {
     dependencies {
         compile project(':project-a:service')
-        compile libs.boot.web
-        compile libs.boot.undertow
+        compile libs.boot.starter.web
+        compile libs.boot.starter.undertow
     }
 }
 

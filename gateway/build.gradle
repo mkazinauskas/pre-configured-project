@@ -3,5 +3,5 @@ jar {
 }
 
 dependencies {
-	compile libs.boot.zuul
+	compile libs.boot.starter.zuul
 }

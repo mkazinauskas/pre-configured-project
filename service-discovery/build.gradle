@@ -3,5 +3,5 @@ jar {
 }
 
 dependencies {
-	compile libs.boot.eurekaServer
+	compile libs.boot.starter.eurekaServer
 }
