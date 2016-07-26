@@ -12,15 +12,10 @@ configure(runnableProjects) {
 }
 
 configure(subprojects - runnableProjects) {
-    jar {
-        enabled = false
-    }
-
     tasks.remove(bootRun)
 
     bootRepackage {
         enabled = false
         executable = false
-        withJarTask = jar
     }
 }
