@@ -5,9 +5,12 @@ ext.runnableProjects = [project(':gateway'),
 configure(runnableProjects) {
     apply from: "${rootDir}/gradle/archives-upload.gradle"
 
+    springBoot {
+        executable = true
+    }
+
     bootRepackage {
         withJarTask = jar
-        executable = true
     }
 
     afterEvaluate {
@@ -20,8 +23,11 @@ configure(runnableProjects) {
 configure(subprojects - runnableProjects) {
     tasks.remove(bootRun)
 
+    springBoot {
+        executable = false
+    }
+
     bootRepackage {
         enabled = false
-        executable = false
     }
 }
