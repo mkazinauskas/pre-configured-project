@@ -14,23 +14,11 @@ configure(project(':project-a:service')) {
 }
 
 configure(project(':project-a:api')) {
-    dependencies {
-        compile project(':project-a:service')
-        compile libs.boot.starter.web
-        compile libs.boot.starter.undertow
-    }
-}
-
-configure(project(':project-a:application')) {
     jar {
-        baseName = 'project-a'
+        baseName = 'project-a-api'
     }
 
-    dependencies {
-        compile project(':project-a:api')
-    }
-
-    def mainClassName = "com.projecta.Application"
+    def mainClassName = 'com.projecta.ApiApplication'
 
     task bootRunDev(type: org.springframework.boot.gradle.run.BootRunTask) {
         group = 'Application'
@@ -39,5 +27,11 @@ configure(project(':project-a:application')) {
             classpath = sourceSets.main.runtimeClasspath
             systemProperty 'spring.profiles.active', 'dev'
         }
+    }
+
+    dependencies {
+        compile project(':project-a:service')
+        compile libs.boot.starter.web
+        compile libs.boot.starter.undertow
     }
 }

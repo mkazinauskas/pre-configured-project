@@ -1,6 +1,6 @@
 ext.runnableProjects = [project(':gateway'),
                         project(':service-discovery'),
-                        project(':project-a:application')]
+                        project(':project-a:api')]
 
 configure(runnableProjects) {
     apply from: "${rootDir}/gradle/archives-upload.gradle"
