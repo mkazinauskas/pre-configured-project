@@ -1,3 +1,3 @@
-include 'gateway', 'service-discovery'
+include 'gateway', 'service-discovery', 'config'
 include 'project-a', 'project-a:domain', 'project-a:service', 'project-a:api'
 

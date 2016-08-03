@@ -1,0 +1,7 @@
+jar {
+    baseName = 'config'
+}
+
+dependencies {
+    compile libs.boot.starter.configServer
+}
