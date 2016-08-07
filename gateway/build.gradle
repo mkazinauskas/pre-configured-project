@@ -4,4 +4,7 @@ jar {
 
 dependencies {
 	compile libs.boot.starter.zuul
+	compile libs.boot.starter.configClient
+	compile libs.boot.starter.actuator
+	compile libs.boot.starter.eurekaClient
 }
