@@ -11,7 +11,8 @@ ext.libs = [
                         undertow    : 'org.springframework.boot:spring-boot-starter-undertow',
                         web         : 'org.springframework.boot:spring-boot-starter-web',
                         eurekaServer: 'org.springframework.cloud:spring-cloud-starter-eureka-server',
-                        configServer: 'org.springframework.cloud:spring-cloud-config-server'
+                        configServer: 'org.springframework.cloud:spring-cloud-config-server',
+                        configClient: 'org.springframework.cloud:spring-cloud-config-client'
                 ],
                 devTools: 'org.springframework.boot:spring-boot-devtools',
                 test    : [
