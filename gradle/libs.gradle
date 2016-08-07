@@ -10,7 +10,9 @@ ext.libs = [
                         jpa         : 'org.springframework.boot:spring-boot-starter-data-jpa',
                         undertow    : 'org.springframework.boot:spring-boot-starter-undertow',
                         web         : 'org.springframework.boot:spring-boot-starter-web',
+                        actuator    : 'org.springframework.boot:spring-boot-starter-actuator',
                         eurekaServer: 'org.springframework.cloud:spring-cloud-starter-eureka-server',
+                        eurekaClient: 'org.springframework.cloud:spring-cloud-starter-eureka',
                         configServer: 'org.springframework.cloud:spring-cloud-config-server',
                         configClient: 'org.springframework.cloud:spring-cloud-config-client'
                 ],

@@ -32,6 +32,8 @@ configure(project(':project-a:api')) {
     dependencies {
         compile project(':project-a:service')
         compile libs.boot.starter.configClient
+        compile libs.boot.starter.actuator
+        compile libs.boot.starter.eurekaClient
         compile libs.boot.starter.web
         compile libs.boot.starter.undertow
     }
