@@ -12,8 +12,8 @@ public class IndexController {
     @Value(value = "${sample.property}")
     private String sampleProperty;
 
-    @RequestMapping(value = "/sample-property", method = RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.GET)
     public String getSampleProperty() {
-        return sampleProperty;
+        return "Sample property from config: ".concat(sampleProperty);
     }
 }
