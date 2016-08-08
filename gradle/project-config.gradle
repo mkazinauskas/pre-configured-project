@@ -1,4 +1,4 @@
-ext.runnableProjects = [project(':config'),
+ext.runnableProjects = [project(':configuration'),
                         project(':gateway'),
                         project(':service-discovery'),
                         project(':project-a:api')]

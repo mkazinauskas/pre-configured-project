@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: project-a
+  cloud:
+    config:
+      enabled: false

@@ -43,6 +43,9 @@ subprojects {
         compile libs.groovy
 
         testCompile libs.boot.test.starter
+        testCompile libs.spock_core
+        testCompile libs.spock_spring
+        testCompile libs.cglib
     }
 
     dependencyManagement {
