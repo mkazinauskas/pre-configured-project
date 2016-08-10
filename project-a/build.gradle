@@ -36,5 +36,6 @@ configure(project(':project-a:api')) {
         compile libs.boot.starter.eurekaClient
         compile libs.boot.starter.web
         compile libs.boot.starter.undertow
+        compile libs.boot.starter.hateoas
     }
 }

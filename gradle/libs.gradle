@@ -16,7 +16,8 @@ ext.libs = [
                         eurekaServer: 'org.springframework.cloud:spring-cloud-starter-eureka-server',
                         eurekaClient: 'org.springframework.cloud:spring-cloud-starter-eureka',
                         configServer: 'org.springframework.cloud:spring-cloud-config-server',
-                        configClient: 'org.springframework.cloud:spring-cloud-config-client'
+                        configClient: 'org.springframework.cloud:spring-cloud-config-client',
+                        hateoas     : 'org.springframework.boot:spring-boot-starter-hateoas'
                 ],
                 devTools: 'org.springframework.boot:spring-boot-devtools',
                 test    : [
@@ -33,6 +34,6 @@ ext.libs = [
         spockCore         : "org.spockframework:spock-core:${spock_version}",
         spockSpring       : "org.spockframework:spock-spring:${spock_version}",
         cglib             : "cglib:cglib-nodep:${cglib_version}",
-        apacheCommons     : "org.apache.commons:commons-lang3:${apacheCommons_version}"
+        apacheCommons     : "org.apache.commons:commons-lang3:${apacheCommons_version}",
 
 ]
