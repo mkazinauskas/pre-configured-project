@@ -1,6 +1,7 @@
 ext {
     spock_version = '1.0-groovy-2.4'
     cglib_version = '3.2.2'
+    apacheCommons_version = '3.4'
 }
 
 ext.libs = [
@@ -29,8 +30,9 @@ ext.libs = [
         h2database        : 'com.h2database:h2',
         mysqlConnector    : 'mysql:mysql-connector-java',
         hibernateValidator: 'org.hibernate:hibernate-validator',
-        spock_core        : "org.spockframework:spock-core:${spock_version}",
-        spock_spring      : "org.spockframework:spock-spring:${spock_version}",
-        cglib             : "cglib:cglib-nodep:${cglib_version}"
+        spockCore         : "org.spockframework:spock-core:${spock_version}",
+        spockSpring       : "org.spockframework:spock-spring:${spock_version}",
+        cglib             : "cglib:cglib-nodep:${cglib_version}",
+        apacheCommons     : "org.apache.commons:commons-lang3:${apacheCommons_version}"
 
 ]

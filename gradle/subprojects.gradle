@@ -41,10 +41,11 @@ subprojects {
     dependencies {
         compile libs.boot.devTools
         compile libs.groovy
+        compile libs.apacheCommons
 
         testCompile libs.boot.test.starter
-        testCompile libs.spock_core
-        testCompile libs.spock_spring
+        testCompile libs.spockCore
+        testCompile libs.spockSpring
         testCompile libs.cglib
     }
 
