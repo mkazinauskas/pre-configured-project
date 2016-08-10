@@ -2,6 +2,8 @@ package com.projecta.api;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -9,11 +11,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RefreshScope
 public class IndexController {
-    @Value(value = "${sample.property}")
+    @Value(value = "${sample.property:not set}")
     private String sampleProperty;
 
     @RequestMapping(method = RequestMethod.GET)
-    public String getSampleProperty() {
-        return "Sample property from config: ".concat(sampleProperty);
+    public ResponseEntity<String> getSampleProperty() {
+        String samplePropertyAsString = "Sample property from config: ".concat(sampleProperty);
+        return new ResponseEntity<>(samplePropertyAsString, HttpStatus.OK);
     }
 }
