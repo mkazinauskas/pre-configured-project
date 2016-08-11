@@ -3,6 +3,8 @@ ext.runnableProjects = [project(':configuration'),
                         project(':service-discovery'),
                         project(':project-a:api')]
 
+ext.rootProjects = [project(':project-a')]
+
 configure(runnableProjects) {
     apply from: "${rootDir}/gradle/archives-upload.gradle"
 
@@ -13,7 +15,9 @@ configure(runnableProjects) {
     bootRepackage {
         withJarTask = jar
     }
+}
 
+configure(subprojects - rootProjects) {
     afterEvaluate {
         task buildAll {
             dependsOn build
