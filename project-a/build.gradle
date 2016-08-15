@@ -1,8 +1,11 @@
 configure(project(':project-a:domain')) {
     dependencies {
         compile libs.boot.starter.jpa
-        compile libs.hibernateValidator
+        compile libs.liquibase
+        compile libs.boot.starter.validation
+
         compile libs.h2database
+
         testCompile libs.h2database
     }
 }
