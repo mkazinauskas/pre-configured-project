@@ -4,7 +4,7 @@ jar {
 
 dependencies {
     compile libs.cloud.starter.oauth2
-    compile libs.boot.starter.configServer
+    compile libs.boot.starter.configClient
     compile libs.boot.starter.web
     compile libs.boot.starter.security
 }
