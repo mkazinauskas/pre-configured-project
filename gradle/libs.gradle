@@ -5,7 +5,7 @@ ext {
 }
 
 ext.libs = [
-        boot              : [
+        boot          : [
                 starter : [
                         default     : 'org.springframework.boot:spring-boot-starter',
                         zuul        : 'org.springframework.cloud:spring-cloud-starter-zuul',
@@ -18,23 +18,27 @@ ext.libs = [
                         configServer: 'org.springframework.cloud:spring-cloud-config-server',
                         configClient: 'org.springframework.cloud:spring-cloud-config-client',
                         hateoas     : 'org.springframework.boot:spring-boot-starter-hateoas',
-                        validation  : 'org.springframework.boot:spring-boot-starter-validation'
+                        validation  : 'org.springframework.boot:spring-boot-starter-validation',
+                        security    : 'org.springframework.boot:spring-boot-starter-security'
                 ],
                 devTools: 'org.springframework.boot:spring-boot-devtools',
                 test    : [
                         starter: 'org.springframework.boot:spring-boot-starter-test'
                 ]
         ],
-        cloud             : [
-                dependencies: "org.springframework.cloud:spring-cloud-dependencies:Brixton.RELEASE"
+        cloud         : [
+                dependencies: "org.springframework.cloud:spring-cloud-dependencies:Brixton.RELEASE",
+                starter     : [
+                        oauth2: 'org.springframework.cloud:spring-cloud-starter-oauth2'
+                ]
         ],
-        groovy            : 'org.codehaus.groovy:groovy-all:2.4.7',
-        h2database        : 'com.h2database:h2',
-        mysqlConnector    : 'mysql:mysql-connector-java',
-        liquibase         : 'org.liquibase:liquibase-core',
-        spockCore         : "org.spockframework:spock-core:${spock_version}",
-        spockSpring       : "org.spockframework:spock-spring:${spock_version}",
-        cglib             : "cglib:cglib-nodep:${cglib_version}",
-        apacheCommons     : "org.apache.commons:commons-lang3:${apacheCommons_version}",
+        groovy        : 'org.codehaus.groovy:groovy-all:2.4.7',
+        h2database    : 'com.h2database:h2',
+        mysqlConnector: 'mysql:mysql-connector-java',
+        liquibase     : 'org.liquibase:liquibase-core',
+        spockCore     : "org.spockframework:spock-core:${spock_version}",
+        spockSpring   : "org.spockframework:spock-spring:${spock_version}",
+        cglib         : "cglib:cglib-nodep:${cglib_version}",
+        apacheCommons : "org.apache.commons:commons-lang3:${apacheCommons_version}",
 
 ]
