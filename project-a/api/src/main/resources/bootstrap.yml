@@ -1,6 +1,10 @@
 spring:
   application:
-    name: project-a
+    name: projecta-api
   cloud:
     config:
       uri: http://localhost:8888
+security:
+  oauth2:
+    resource:
+      userInfoUri: http://localhost:9999/uaa/user
