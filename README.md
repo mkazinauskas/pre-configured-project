@@ -1,7 +1,23 @@
-**Project launch
+# Pre configured project for quick start
+
+## Used tools
+* Spring Boot (1.4.0.RELEASE)
+* Spring Cloud
+* Gradle (2.14.1)
+
+## Project capabilities
+* Configuration microservice uses properties from `https://github.com/modestukasai/pre-configured-project-config`
+* Gateway is Zuul edge service, connects all client side microservices
+* Service discovery service uses Eeureka
+* Authorization microservice uses OAuth2
+
+## Project launch
 
 Launch in this order (bootRun task):
-1. config
-2. service-discovery
-3. gateway
-4. project-a
+
+1. `configuration`
+2. `service-discovery`
+3. `authorization` 
+4. `project-a`
+5. `gateway`
+
