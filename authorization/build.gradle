@@ -7,4 +7,12 @@ dependencies {
     compile libs.boot.starter.configClient
     compile libs.boot.starter.web
     compile libs.boot.starter.security
+
+    compile libs.boot.starter.jpa
+    compile libs.liquibase
+    compile libs.boot.starter.validation
+
+    compile libs.h2database
+
+    testCompile libs.h2database
 }
