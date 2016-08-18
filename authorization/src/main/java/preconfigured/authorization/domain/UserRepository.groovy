@@ -1,4 +1,4 @@
-package preconfigured.authorization.api.user.domain
+package preconfigured.authorization.domain
 
 import groovy.transform.CompileStatic
 import org.springframework.data.jpa.repository.JpaRepository

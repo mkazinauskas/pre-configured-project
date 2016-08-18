@@ -4,7 +4,7 @@ import groovy.transform.CompileStatic
 import org.springframework.security.core.authority.SimpleGrantedAuthority
 import org.springframework.security.core.userdetails.UserDetails
 import org.springframework.stereotype.Component
-import preconfigured.authorization.api.user.domain.User
+import preconfigured.authorization.domain.User
 
 @Component
 @CompileStatic

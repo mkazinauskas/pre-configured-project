@@ -5,8 +5,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
-import preconfigured.authorization.api.user.domain.User;
-import preconfigured.authorization.api.user.domain.UserRepository;
+import preconfigured.authorization.domain.User;
+import preconfigured.authorization.domain.UserRepository;
 
 import java.util.Optional;
 

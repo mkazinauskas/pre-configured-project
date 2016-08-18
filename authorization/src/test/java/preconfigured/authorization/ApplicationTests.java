@@ -45,7 +45,7 @@ public class ApplicationTests {
                 + port + "/uaa/oauth/authorize", String.class);
         assertEquals(HttpStatus.UNAUTHORIZED, response.getStatusCode());
         String auth = response.getHeaders().getFirst("WWW-Authenticate");
-        assertTrue("Wrong header: " + auth, auth.startsWith("Basic realm=\""));
+        assertTrue("Wrong header: " + auth, auth.startsWith("Bearer realm=\""));
     }
 
 }

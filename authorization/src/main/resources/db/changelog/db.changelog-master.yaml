@@ -43,19 +43,19 @@ databaseChangeLog:
                   type: bit
               - column:
                   name: unique_id
-                  type: varchar(255)
+                  type: varchar(32)
                   constraints:
                     nullable: false
                     unique: true
               - column:
                   name: password_reset_code
-                  type: varchar(255)
+                  type: varchar(32)
                   constraints:
                     nullable: true
                     unique: true
               - column:
                   name: activation_code
-                  type: varchar(255)
+                  type: varchar(32)
                   constraints:
                     nullable: true
                     unique: true
