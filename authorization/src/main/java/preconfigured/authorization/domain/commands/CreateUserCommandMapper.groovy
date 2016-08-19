@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component
 import preconfigured.authorization.domain.User
 
 @Component
+@CompileStatic
 class CreateUserCommandMapper {
 
     @Autowired
@@ -16,7 +17,7 @@ class CreateUserCommandMapper {
         new User().with {
             email = command.email
             encodedPassword = passwordEncoder.encode(command.password)
-            authorities << command.authorities
+            authorities.addAll command.authorities
             it
         }
     }

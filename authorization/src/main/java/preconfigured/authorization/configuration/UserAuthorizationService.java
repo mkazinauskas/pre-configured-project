@@ -5,6 +5,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 import preconfigured.authorization.domain.User;
 import preconfigured.authorization.domain.UserRepository;
 
@@ -24,6 +25,7 @@ public class UserAuthorizationService implements UserDetailsService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Optional<User> foundUserByEmail = userRepository.findByEmail(username);
 

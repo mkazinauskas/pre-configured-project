@@ -58,7 +58,7 @@ class User {
     @Enumerated(EnumType.STRING)
     @CollectionTable(name = 'user_authorities', joinColumns = @JoinColumn(name = 'user_id', nullable = false))
     @Column(name = 'authority')
-    final Set<UserAuthorityType> authorities = [];
+    final Set<UserAuthorityType> authorities = []
 
     User() {
     }
