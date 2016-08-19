@@ -60,16 +60,24 @@ databaseChangeLog:
                     nullable: true
                     unique: true
         - createTable:
-            tableName: users_to_authorities
+            tableName: user_authorities
             columns:
               - column:
-                  name: id
+                  name: user_id
                   type: bigint
                   constraints:
-                    nullable: true
+                    nullable: false
               - column:
-                  name: name
+                  name: authority
                   type: varchar(32)
                   constraints:
-                    nullable: true
-                    unique: true
+                    nullable: false
+        - addPrimaryKey:
+            tableName: user_authorities
+            columnNames: user_id,authority
+        - addForeignKeyConstraint:
+            constraintName: FK_user_to_user_authorities
+            baseTableName: user_authorities
+            baseColumnNames: user_id
+            referencedTableName: users
+            referencedColumnNames: id

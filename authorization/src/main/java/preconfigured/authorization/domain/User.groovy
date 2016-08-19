@@ -45,7 +45,7 @@ class User {
 
     @NotBlank
     @Column(name = 'unique_id', unique = true, length = 32)
-    String uniqueId
+    String uniqueId = RandomStringUtils.randomAlphanumeric(32)
 
     @Column(name = 'password_reset_code', length = 32)
     String passwordResetCode
@@ -54,17 +54,13 @@ class User {
     String activationCode
 
     @NotEmpty
-    @ElementCollection(fetch = FetchType.EAGER)
+    @ElementCollection
     @Enumerated(EnumType.STRING)
-    @JoinTable(name = "users_to_authorities")
-    final Set<UserAuthorityType> authorities = [] as Set;
+    @CollectionTable(name = 'user_authorities', joinColumns = @JoinColumn(name = 'user_id', nullable = false))
+    @Column(name = 'authority')
+    final Set<UserAuthorityType> authorities = [];
 
     User() {
-    }
-
-    @PrePersist
-    void prePersistActions() {
-        uniqueId = RandomStringUtils.randomAlphanumeric(32)
     }
 }
 
