@@ -56,7 +56,8 @@ class User {
     @NotEmpty
     @ElementCollection(fetch = FetchType.EAGER)
     @Enumerated(EnumType.STRING)
-    final Set<UserAuthorityType> authorities = [];
+    @JoinTable(name = "users_to_authorities")
+    final Set<UserAuthorityType> authorities = [] as Set;
 
     User() {
     }

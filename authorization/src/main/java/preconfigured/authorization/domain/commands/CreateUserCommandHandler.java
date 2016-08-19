@@ -12,6 +12,11 @@ public class CreateUserCommandHandler {
 
     private CreateUserCommandMapper mapper;
 
+    public CreateUserCommandHandler(UserRepository userRepository, CreateUserCommandMapper mapper) {
+        this.userRepository = userRepository;
+        this.mapper = mapper;
+    }
+
     @Transactional
     public CreateUserCommandResponse createUser(CreateUserCommand command){
         User user = mapper.mapFrom(command);
