@@ -3,6 +3,7 @@ subprojects {
     apply plugin: 'spring-boot'
     apply from: "${rootDir}/gradle/checkstyle.gradle"
     apply from: "${rootDir}/gradle/findbugs.gradle"
+    apply from: "${rootDir}/gradle/codenarc.gradle"
 
 
     sourceCompatibility = 1.8
