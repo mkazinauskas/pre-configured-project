@@ -18,7 +18,7 @@ public class CreateUserCommandHandler {
     }
 
     @Transactional
-    public CreateUserCommandResponse createUser(CreateUserCommand command){
+    public CreateUserCommandResponse createUser(CreateUserCommand command) {
         User user = mapper.mapFrom(command);
         User savedUser = userRepository.save(user);
         return new CreateUserCommandResponse(savedUser.getId());
