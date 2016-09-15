@@ -1,5 +1,5 @@
 apply plugin: 'checkstyle'
 
 checkstyle {
-    configFile = new File(rootDir, "checkstyle.xml")
+    configFile = new File(rootDir, 'gradle/checkstyle/checkstyle.xml')
 }
