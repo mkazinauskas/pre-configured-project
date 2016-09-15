@@ -1,6 +1,4 @@
 spring:
-  application:
-    name: service-discovery
   cloud:
     config:
       enabled: false

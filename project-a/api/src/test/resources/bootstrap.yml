@@ -1,6 +1,9 @@
 spring:
-  application:
-    name: project-a
+  profiles:
+    active: test
   cloud:
     config:
       enabled: false
+eureka:
+  client:
+    enabled: false
