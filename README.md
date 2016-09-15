@@ -6,6 +6,7 @@
 * Gradle (2.14.1)
   * FindBugs (plugin)
   * CheckStyle (plugin)
+  * CodeNarc (plugin)
 
 ## Project capabilities
 * Configuration microservice uses properties from `https://github.com/modestukasai/pre-configured-project-config`
@@ -22,6 +23,6 @@ Launch in this order (bootRun task):
 1. `configuration`
 2. `service-discovery`
 3. `authorization` 
-4. `project-a`
+4. `project-a:api`
 5. `gateway`
 
