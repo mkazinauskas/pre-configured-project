@@ -2,3 +2,11 @@ spring:
   cloud:
     config:
       enabled: false
+
+eureka:
+  client:
+    useDnsForFetchingServiceUrls: false
+    registerWithEureka: false
+    fetchRegistry: false
+  server:
+    waitTimeInMsWhenSyncEmpty: 0
