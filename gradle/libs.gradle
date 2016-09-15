@@ -2,6 +2,7 @@ ext {
     spock_version = '1.0-groovy-2.4'
     cglib_version = '3.2.2'
     apacheCommons_version = '3.4'
+    groovy_version = '2.4.7'
 }
 
 ext.libs = [
@@ -32,7 +33,7 @@ ext.libs = [
                         oauth2: 'org.springframework.cloud:spring-cloud-starter-oauth2'
                 ]
         ],
-        groovy        : 'org.codehaus.groovy:groovy-all:2.4.7',
+        groovy        : "org.codehaus.groovy:groovy-all:${groovy_version}",
         h2database    : 'com.h2database:h2',
         mysqlConnector: 'mysql:mysql-connector-java',
         liquibase     : 'org.liquibase:liquibase-core',
