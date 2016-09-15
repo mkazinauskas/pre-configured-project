@@ -1,3 +1,3 @@
 include 'gateway', 'service-discovery', 'configuration', 'authorization'
-include 'project-a', 'project-a:domain', 'project-a:service', 'project-a:api'
+include 'project-a', 'project-a:domain', 'project-a:service', 'project-a:api', 'project-a:ui'
 
