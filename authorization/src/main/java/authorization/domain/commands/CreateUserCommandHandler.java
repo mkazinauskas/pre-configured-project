@@ -1,9 +1,9 @@
-package preconfigured.authorization.domain.commands;
+package authorization.domain.commands;
 
+import authorization.domain.User;
+import authorization.domain.UserRepository;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
-import preconfigured.authorization.domain.User;
-import preconfigured.authorization.domain.UserRepository;
 
 @Component
 public class CreateUserCommandHandler {

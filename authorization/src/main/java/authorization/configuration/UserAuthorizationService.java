@@ -1,13 +1,13 @@
-package preconfigured.authorization.configuration;
+package authorization.configuration;
 
+import authorization.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
-import preconfigured.authorization.domain.User;
-import preconfigured.authorization.domain.UserRepository;
+import authorization.domain.UserRepository;
 
 import java.util.Optional;
 

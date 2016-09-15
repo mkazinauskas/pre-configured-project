@@ -1,4 +1,4 @@
-package preconfigured.authorization.domain.commands
+package authorization.domain.commands
 
 class CreateUserCommandResponse {
     long id

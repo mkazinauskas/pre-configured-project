@@ -1,4 +1,4 @@
-package preconfigured.authorization.domain
+package authorization.domain
 
 import groovy.transform.CompileStatic
 import org.apache.commons.lang3.RandomStringUtils

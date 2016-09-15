@@ -1,10 +1,10 @@
-package preconfigured.authorization.configuration
+package authorization.configuration
 
 import groovy.transform.CompileStatic
 import org.springframework.security.core.authority.SimpleGrantedAuthority
 import org.springframework.security.core.userdetails.UserDetails
 import org.springframework.stereotype.Component
-import preconfigured.authorization.domain.User
+import authorization.domain.User
 
 @Component
 @CompileStatic

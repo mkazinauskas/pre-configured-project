@@ -1,4 +1,4 @@
-package preconfigured.authorization.api.user;
+package authorization.api.user;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
