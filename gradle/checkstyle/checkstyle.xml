@@ -17,7 +17,6 @@
     <module name="DeclarationOrder"/>
     <module name="SimplifyBooleanExpression"/>
     <module name="SimplifyBooleanReturn"/>
-    <module name="RedundantThrows"/>
     <module name="IllegalThrows"/>
     <module name="ModifiedControlVariable"/>
     <module name="UnnecessaryParentheses" />
