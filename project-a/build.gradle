@@ -21,7 +21,7 @@ configure(project(':project-a:api')) {
         baseName = 'project-a-api'
     }
 
-    def mainClassName = 'com.projecta.ApiApplication'
+    def mainClassName = 'projecta.ApiApplication'
 
     task bootRunDev(type: org.springframework.boot.gradle.run.BootRunTask) {
         group = 'Application'
