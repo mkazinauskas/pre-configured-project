@@ -40,5 +40,17 @@ configure(project(':project-a:api')) {
         compile libs.boot.starter.web
         compile libs.boot.starter.undertow
         compile libs.boot.starter.hateoas
+        compile libs.cloud.starter.oauth2
+    }
+}
+
+configure(project(':project-a:ui')) {
+    dependencies {
+        compile libs.boot.starter.eurekaClient
+        compile libs.cloud.starter.oauth2
+        compile libs.boot.starter.web
+        compile 'org.webjars:jquery:2.1.1'
+        compile 'org.webjars:angularjs:1.3.8'
+        compile 'org.webjars:bootstrap:3.2.0'
     }
 }
