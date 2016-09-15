@@ -7,4 +7,5 @@ dependencies {
 	compile libs.boot.starter.configClient
 	compile libs.boot.starter.actuator
 	compile libs.boot.starter.eurekaClient
+	compile libs.cloud.starter.oauth2
 }
