@@ -1,4 +1,4 @@
-package com.projecta.domain;
+package projecta.domain;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
