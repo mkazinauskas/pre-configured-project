@@ -1,4 +1,4 @@
-package com.projecta.service;
+package projecta.service;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
