@@ -4,19 +4,19 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.CommandLineRunner
 import org.springframework.context.annotation.Bean
 import org.springframework.stereotype.Component
-import authorization.domain.User
-import authorization.domain.commands.CreateUserCommand
-import authorization.domain.commands.CreateUserCommandHandler
+import authorization.domain.user.User
+import authorization.domain.user.commands.CreateUser
+import authorization.domain.user.commands.CreateUserHandler
 
 @Component
 public class DevDataInit {
 
     @Autowired
-    private CreateUserCommandHandler createUserCommandHandler;
+    private CreateUserHandler createUserCommandHandler;
 
     private final List<User> USERS = [
-            new CreateUserCommand(email: 'testUser1@mail.com', password: 'password'),
-            new CreateUserCommand(email: 'testUser2@mail.com', password: 'password')
+            new CreateUser(email: 'testUser1@mail.com', password: 'password'),
+            new CreateUser(email: 'testUser2@mail.com', password: 'password')
     ]
 
     @Bean

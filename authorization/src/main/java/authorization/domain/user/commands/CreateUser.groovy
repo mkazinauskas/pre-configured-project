@@ -1,10 +1,10 @@
-package authorization.domain.commands
+package authorization.domain.user.commands
 
-import authorization.domain.UserAuthorityType
+import authorization.domain.user.UserAuthorityType
 
 import static UserAuthorityType.USER
 
-class CreateUserCommand {
+class CreateUser {
     String email
     String password
     Set<UserAuthorityType> authorities = [USER]

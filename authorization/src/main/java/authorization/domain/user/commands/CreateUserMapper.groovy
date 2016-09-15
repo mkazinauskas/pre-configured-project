@@ -1,19 +1,21 @@
-package authorization.domain.commands
+package authorization.domain.user.commands
 
 import groovy.transform.CompileStatic
+import groovy.transform.PackageScope
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.stereotype.Component
-import authorization.domain.User
+import authorization.domain.user.User
 
 @Component
 @CompileStatic
-class CreateUserCommandMapper {
+@PackageScope
+class CreateUserMapper {
 
     @Autowired
     private PasswordEncoder passwordEncoder
 
-    User mapFrom(CreateUserCommand command) {
+    User mapFrom(CreateUser command) {
         new User().with {
             email = command.email
             encodedPassword = passwordEncoder.encode(command.password)
