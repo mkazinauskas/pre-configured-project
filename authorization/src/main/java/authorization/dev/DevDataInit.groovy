@@ -1,12 +1,12 @@
 package authorization.dev
 
+import authorization.domain.user.User
+import authorization.domain.user.commands.CreateUser
+import authorization.domain.user.commands.CreateUserHandler
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.CommandLineRunner
 import org.springframework.context.annotation.Bean
 import org.springframework.stereotype.Component
-import authorization.domain.user.User
-import authorization.domain.user.commands.CreateUser
-import authorization.domain.user.commands.CreateUserHandler
 
 @Component
 public class DevDataInit {
