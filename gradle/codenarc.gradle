@@ -4,10 +4,4 @@ codenarc {
     toolVersion = '0.25.2'
 }
 
-codenarcMain {
-    configFile = rootProject.file('gradle/codenarc/CodeNarcMain.groovy')
-}
-
-codenarcTest {
-    configFile = rootProject.file('gradle/codenarc/CodeNarcTest.groovy')
-}
+[codenarcMain, codenarcTest]*.configFile = rootProject.file('gradle/codenarc/rules.groovy')

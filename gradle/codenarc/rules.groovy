@@ -1,0 +1,11 @@
+ruleset{
+    PropertyName
+    UnusedArray
+    UnusedImport
+    UnusedMethodParameter
+    UnusedObject
+    UnusedPrivateField
+    UnusedPrivateMethod
+    UnusedPrivateMethodParameter
+    UnusedVariable
+}
