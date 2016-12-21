@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/modestukasai/pre-configured-project.svg?branch=master)](https://travis-ci.org/modestukasai/pre-configured-project)
+
 # Pre configured project for quick start
 
 ## Used tools
