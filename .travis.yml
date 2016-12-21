@@ -1,2 +1,4 @@
 language: java
-./gradlew buildAll
+script:
+  - jdk_switcher use oraclejdk8
+  - ./gradlew buildAll
