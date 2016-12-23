@@ -1,6 +1,6 @@
 buildscript {
     ext {
-        springBootVersion = '1.4.0.RELEASE'
+        springBootVersion = '1.4.2.RELEASE'
     }
 
     repositories {
@@ -39,5 +39,5 @@ apply from: "${rootDir}/gradle/subprojects.gradle"
 apply from: "${rootDir}/gradle/project-config.gradle"
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '3.0'
+    gradleVersion = '3.2.1'
 }
