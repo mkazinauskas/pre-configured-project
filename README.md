@@ -3,12 +3,13 @@
 # Pre configured project for quick start
 
 ## Used tools
-* Spring Boot (1.4.0.RELEASE)
+* Spring Boot (1.4.2.RELEASE)
 * Spring Cloud
-* Gradle (2.14.1)
+* Gradle (3.2.1)
   * FindBugs (plugin)
   * CheckStyle (plugin)
   * CodeNarc (plugin)
+  * PMD (plugin)
 
 ## Project capabilities
 * Configuration microservice uses properties from `https://github.com/modestukasai/pre-configured-project-config`
