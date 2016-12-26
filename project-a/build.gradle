@@ -21,17 +21,6 @@ configure(project(':project-a:api')) {
         baseName = 'project-a-api'
     }
 
-    def mainClassName = 'projecta.ApiApplication'
-
-    task bootRunDev(type: org.springframework.boot.gradle.run.BootRunTask) {
-        group = 'Application'
-        doFirst() {
-            main = mainClassName
-            classpath = sourceSets.main.runtimeClasspath
-            systemProperty 'spring.profiles.active', 'dev'
-        }
-    }
-
     dependencies {
         compile project(':project-a:service')
         compile libs.boot.starter.configClient
