@@ -8,13 +8,8 @@ os:
 
 sudo: required
 
-before_install:
- - chmod +x gradlew
+install: ./gradlew clean buildAll
 
 cache:
   directories:
   - $HOME/.gradle
-
-
-script:
-  - ./gradlew clean buildAll
