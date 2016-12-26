@@ -15,5 +15,5 @@ install: echo "skip 'gradle assemble' step"
 build: echo "skip 'gradle check' step"
 
 script:
- - ./gradlew clean buildAll
+ - ./gradlew clean buildAll --continue
 
