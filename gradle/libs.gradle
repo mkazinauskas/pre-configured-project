@@ -40,6 +40,5 @@ ext.libs = [
         spockCore     : "org.spockframework:spock-core:${spock_version}",
         spockSpring   : "org.spockframework:spock-spring:${spock_version}",
         cglib         : "cglib:cglib-nodep:${cglib_version}",
-        apacheCommons : "org.apache.commons:commons-lang3:${apacheCommons_version}",
-
+        apacheCommons : "org.apache.commons:commons-lang3:${apacheCommons_version}"
 ]

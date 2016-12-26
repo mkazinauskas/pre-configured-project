@@ -4,14 +4,21 @@ apply from: "${rootDir}/gradle/helpers/git-version.gradle"
 jar {
     version = generateVersion()
     manifest {
-        attributes 'Implementation-Version': generateVersion()
+        attributes 'Implementation-Version': jar.version
     }
+    //No dev or other pofiles in jar
+    exclude 'application-*.properties'
+    exclude 'application-*.yml'
+    exclude 'bootstrap-*.properties'
+    exclude 'bootstrap-*.yml'
 }
 
 task(createVersionInfo) << {
-    File file = new File('version.info')
-    file.write(generateVersion())
+    File file = new File('version.properties')
+    file.write("ARTIFACT_VERSION=${generateVersion()}")
 }
+
+uploadArchives.dependsOn assemble
 
 repositories {
     maven {
@@ -19,14 +26,21 @@ repositories {
     }
 }
 
-uploadArchives {
-    repositories {
-        mavenDeployer {
-            repository(url: "${nexusUrl}/maven-releases") {
-                authentication(userName: nexusUsername, password: nexusPassword)
-            }
-            snapshotRepository(url: "${nexusUrl}/maven-snapshots") {
-                authentication(userName: nexusUsername, password: nexusPassword)
+afterEvaluate {
+
+    uploadArchives {
+        repositories {
+            mavenDeployer {
+                pom.groupId = 'polins'
+                pom.version = jar.version
+                pom.artifactId = pom.groupId + '-' + jar.baseName
+
+                repository(url: "${nexusUrl}/maven-releases") {
+                    authentication(userName: nexusUsername, password: nexusPassword)
+                }
+                snapshotRepository(url: "${nexusUrl}/maven-snapshots") {
+                    authentication(userName: nexusUsername, password: nexusPassword)
+                }
             }
         }
     }
