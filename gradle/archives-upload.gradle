@@ -13,7 +13,7 @@ jar {
     exclude 'bootstrap-*.yml'
 }
 
-task(createVersionInfo) << {
+task(createVersionInfo).doLast {
     File file = new File('version.properties')
     file.write("ARTIFACT_VERSION=${generateVersion()}")
 }

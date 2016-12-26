@@ -5,6 +5,8 @@ ext {
     groovy_version = '2.4.7'
 }
 
+ext.developers = ['user']
+
 ext.libs = [
         boot          : [
                 starter : [

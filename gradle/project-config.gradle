@@ -19,12 +19,19 @@ configure(runnableProjects) {
     bootRepackage {
         withJarTask = jar
     }
-}
 
-configure(subprojects - rootProjects) {
-    afterEvaluate {
-        task buildAll {
-            dependsOn build
+    developers.each { String developer ->
+        String taskName = "bootRunDev${developer.capitalize()}"
+
+        task(taskName).doLast {
+            bootRun {
+                systemProperty 'spring.profiles.active', "dev,$developer"
+            }
+        }
+
+        tasks.getByName(taskName) {
+            finalizedBy bootRun
+            group = 'application'
         }
     }
 }
@@ -38,5 +45,13 @@ configure(subprojects - runnableProjects) {
 
     bootRepackage {
         enabled = false
+    }
+}
+
+configure(subprojects - rootProjects) {
+    afterEvaluate {
+        task buildAll {
+            dependsOn build
+        }
     }
 }
