@@ -26,7 +26,7 @@ public class UserAuthorizationService implements UserDetailsService {
 
     @Override
     @Transactional(readOnly = true)
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+    public UserDetails loadUserByUsername(String username) {
         Optional<User> foundUserByEmail = users.findByEmail(username);
 
         return foundUserByEmail

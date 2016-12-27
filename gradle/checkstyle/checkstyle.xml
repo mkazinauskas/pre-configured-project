@@ -20,6 +20,9 @@
     <module name="IllegalThrows"/>
     <module name="ModifiedControlVariable"/>
     <module name="UnnecessaryParentheses" />
+    <module name="RedundantThrows">
+      <property name="suppressLoadErrors" value="true"/>
+    </module>
     <module name="HiddenField">
       <property name="tokens" value="VARIABLE_DEF"/>
     </module>
