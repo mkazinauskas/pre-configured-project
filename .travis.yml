@@ -12,8 +12,4 @@ cache:
 
 install: echo "skip 'gradle assemble' step"
 
-build: echo "skip 'gradle check' step"
-
-script:
- - ./gradlew clean buildAll --continue
-
+build: ./gradlew clean buildAll --continue
