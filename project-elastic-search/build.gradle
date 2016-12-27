@@ -1,0 +1,29 @@
+configure(project(':project-elastic-search:domain')) {
+    dependencies {
+        compile libs.boot.starter.jpa
+        compile libs.boot.starter.elasticSearch
+        compile libs.boot.starter.validation
+    }
+}
+
+//<dependency>
+//<groupId>net.java.dev.jna</groupId>
+//			<artifactId>jna</artifactId>
+//<scope>runtime</scope>
+//		</dependency>
+
+configure(project(':project-elastic-search:api')) {
+    jar {
+        baseName = 'project-elastic-search-api'
+    }
+
+    dependencies {
+        compile project(':project-elastic-search:domain')
+        compile libs.boot.starter.configClient
+        compile libs.boot.starter.actuator
+        compile libs.boot.starter.eurekaClient
+        compile libs.boot.starter.web
+        compile libs.boot.starter.hateoas
+        compile libs.cloud.starter.oauth2
+    }
+}
