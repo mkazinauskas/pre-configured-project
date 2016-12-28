@@ -1,7 +1,6 @@
 spring:
-  jpa:
-    hibernate:
-      ddl-auto: validate
-  h2:
-    console:
-      enabled: false
+  data:
+    elasticsearch:
+      properties:
+        - path.home: target/elastic
+        - transport.tcp.connect_timeout: 120s

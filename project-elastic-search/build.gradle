@@ -1,6 +1,5 @@
 configure(project(':project-elastic-search:domain')) {
     dependencies {
-        compile libs.boot.starter.jpa
         compile libs.boot.starter.elasticSearch
         compile libs.boot.starter.validation
     }
