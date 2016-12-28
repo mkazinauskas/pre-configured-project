@@ -18,7 +18,7 @@ class EntryRepositorySpec extends Specification {
     @Autowired
     private CreateEntryHandler handler
 
-    def 'should do some stuff'() {
+    def 'should find saved entry by name'() {
         given:
             String entryId = handler.handle(
                     new CreateEntry(name: 'myName', value: 'myValue')
