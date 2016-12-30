@@ -1,10 +1,10 @@
-package project.elastic.search.domain.entry.commands
+package project.elastic.search.elastic.search.elastic.search.domain.entry.commands
 
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
 import org.springframework.transaction.annotation.Transactional
-import project.elastic.search.domain.entry.Entry
-import project.elastic.search.domain.entry.EntryRepository
+import project.elastic.search.elastic.search.elastic.search.domain.entry.EntryRepository
+import project.elastic.search.elastic.search.elastic.search.domain.entry.Entry
 
 @Component
 class CreateEntryHandler {

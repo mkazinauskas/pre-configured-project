@@ -7,3 +7,6 @@ spring:
 eureka:
   client:
     enabled: false
+security:
+  oauth:
+    enabled: false

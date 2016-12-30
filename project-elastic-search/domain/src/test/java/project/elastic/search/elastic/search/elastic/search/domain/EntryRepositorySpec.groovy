@@ -1,11 +1,11 @@
-package project.elastic.search.domain
+package project.elastic.search.elastic.search.elastic.search.domain
 
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.test.context.ContextConfiguration
-import project.elastic.search.domain.entry.EntryRepository
-import project.elastic.search.domain.entry.commands.CreateEntry
-import project.elastic.search.domain.entry.commands.CreateEntryHandler
+import project.elastic.search.elastic.search.elastic.search.domain.entry.EntryRepository
+import project.elastic.search.elastic.search.elastic.search.domain.entry.commands.CreateEntry
+import project.elastic.search.elastic.search.elastic.search.domain.entry.commands.CreateEntryHandler
 import spock.lang.Specification
 
 @SpringBootTest

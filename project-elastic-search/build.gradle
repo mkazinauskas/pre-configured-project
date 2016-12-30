@@ -2,14 +2,9 @@ configure(project(':project-elastic-search:domain')) {
     dependencies {
         compile libs.boot.starter.elasticSearch
         compile libs.boot.starter.validation
+        runtime libs.jna
     }
 }
-
-//<dependency>
-//<groupId>net.java.dev.jna</groupId>
-//			<artifactId>jna</artifactId>
-//<scope>runtime</scope>
-//		</dependency>
 
 configure(project(':project-elastic-search:api')) {
     jar {

@@ -1,4 +1,4 @@
-package project.elastic.search.domain.entry
+package project.elastic.search.elastic.search.elastic.search.domain.entry
 
 import groovy.transform.PackageScope
 import org.springframework.data.annotation.Id
