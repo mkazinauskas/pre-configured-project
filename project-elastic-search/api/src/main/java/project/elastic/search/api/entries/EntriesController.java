@@ -1,10 +1,12 @@
 package project.elastic.search.api.entries;
 
+import org.elasticsearch.index.query.QueryBuilder;
+import org.elasticsearch.index.query.QueryBuilders;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.repository.query.Param;
 import org.springframework.hateoas.Resource;
-import org.springframework.hateoas.ResourceSupport;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import project.elastic.search.elastic.search.elastic.search.domain.entry.Entry;
 import project.elastic.search.elastic.search.elastic.search.domain.entry.EntryRepository;
 
+import static org.elasticsearch.index.query.QueryBuilders.moreLikeThisQuery;
 import static org.springframework.hateoas.core.DummyInvocationUtils.methodOn;
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
 
@@ -29,7 +32,21 @@ public class EntriesController {
     public ResponseEntity<Resource<Page<EntryBean>>> entries(Pageable pageable) {
         Page<Entry> foundEntries = entries.findAll(pageable);
         return ResponseEntity.ok(new Resource<>(
-                        foundEntries.map(mapper::map),
+                foundEntries.map(mapper::map),
+                linkTo(methodOn(EntriesController.class).entries(null)).withSelfRel()
+        ));
+    }
+
+    @RequestMapping(value = "search", method = RequestMethod.GET)
+    public ResponseEntity<Resource<Page<EntryBean>>> searchEntries(
+            @Param(value = "query") String query,
+            Pageable pageable
+    ) {
+        QueryBuilder queryBuilder = moreLikeThisQuery("name", "value").addLikeText(query);
+
+        Page<Entry> foundEntries = entries.search(queryBuilder, pageable);
+        return ResponseEntity.ok(new Resource<>(
+                foundEntries.map(mapper::map),
                 linkTo(methodOn(EntriesController.class).entries(null)).withSelfRel()
         ));
     }

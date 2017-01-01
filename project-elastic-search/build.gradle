@@ -18,6 +18,5 @@ configure(project(':project-elastic-search:api')) {
         compile libs.boot.starter.eurekaClient
         compile libs.boot.starter.web
         compile libs.boot.starter.hateoas
-        compile libs.cloud.starter.oauth2
     }
 }

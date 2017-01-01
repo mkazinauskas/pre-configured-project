@@ -21,11 +21,22 @@ class EntriesControllerSpec extends Specification {
     @Autowired
     private CreateEntryHandler handler
 
-    def 'should find commands'() {
+    def 'should find entries'() {
         given:
             handler.handle(new CreateEntry(name: 'random name', value: 'random value'))
         when:
             ResponseEntity<String> response = restTemplate.getForEntity('/entries', String)
+        then:
+            response.statusCode == HttpStatus.OK
+            def body = new JsonSlurper().parseText(response.body)
+            body != null
+    }
+
+    def 'should find entries by search query'() {
+        given:
+            handler.handle(new CreateEntry(name: 'name with test', value: 'value is the best'))
+        when:
+            ResponseEntity<String> response = restTemplate.getForEntity('/entries/search?query=test', String)
         then:
             response.statusCode == HttpStatus.OK
             def body = new JsonSlurper().parseText(response.body)
