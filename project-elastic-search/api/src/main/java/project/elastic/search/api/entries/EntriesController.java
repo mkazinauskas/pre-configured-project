@@ -47,7 +47,8 @@ public class EntriesController {
     ) {
         BoolQueryBuilder builder = boolQuery()
                 .should(QueryBuilders.fuzzyQuery("name", query))
-                .should(QueryBuilders.fuzzyQuery("value", query));
+                .should(QueryBuilders.fuzzyQuery("value", query))
+                .minimumNumberShouldMatch(1);
 
         Page<Entry> foundEntries = entries.search(builder, pageable);
         return ResponseEntity.ok(new Resource<>(
