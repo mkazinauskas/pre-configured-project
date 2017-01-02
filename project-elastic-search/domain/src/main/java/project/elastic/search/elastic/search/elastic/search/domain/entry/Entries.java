@@ -5,6 +5,6 @@ import org.springframework.data.elasticsearch.repository.ElasticsearchRepository
 
 import java.util.List;
 
-public interface EntryRepository extends ElasticsearchRepository<Entry, String> {
+public interface Entries extends ElasticsearchRepository<Entry, String> {
     List<Entry> findByName(String name);
 }

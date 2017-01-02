@@ -3,13 +3,13 @@ package project.elastic.search.elastic.search.elastic.search.domain.entry.comman
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
 import org.springframework.transaction.annotation.Transactional
-import project.elastic.search.elastic.search.elastic.search.domain.entry.EntryRepository
+import project.elastic.search.elastic.search.elastic.search.domain.entry.Entries
 import project.elastic.search.elastic.search.elastic.search.domain.entry.Entry
 
 @Component
 class CreateEntryHandler {
     @Autowired
-    private EntryRepository repository
+    private Entries repository
 
 
     @Transactional

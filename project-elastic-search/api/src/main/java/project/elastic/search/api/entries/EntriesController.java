@@ -1,10 +1,11 @@
 package project.elastic.search.api.entries;
 
-import org.elasticsearch.index.query.QueryBuilder;
-import org.elasticsearch.index.query.QueryBuilders;
+import org.elasticsearch.index.query.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.elasticsearch.core.query.NativeSearchQueryBuilder;
+import org.springframework.data.elasticsearch.core.query.SearchQuery;
 import org.springframework.data.repository.query.Param;
 import org.springframework.hateoas.Resource;
 import org.springframework.http.ResponseEntity;
@@ -12,8 +13,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import project.elastic.search.elastic.search.elastic.search.domain.entry.Entry;
-import project.elastic.search.elastic.search.elastic.search.domain.entry.EntryRepository;
+import project.elastic.search.elastic.search.elastic.search.domain.entry.Entries;
 
+import static org.elasticsearch.index.query.MultiMatchQueryBuilder.*;
+import static org.elasticsearch.index.query.QueryBuilders.boolQuery;
 import static org.elasticsearch.index.query.QueryBuilders.moreLikeThisQuery;
 import static org.springframework.hateoas.core.DummyInvocationUtils.methodOn;
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
@@ -23,7 +26,7 @@ import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
 public class EntriesController {
 
     @Autowired
-    private EntryRepository entries;
+    private Entries entries;
 
     @Autowired
     private EntryBeanMapper mapper;
@@ -42,9 +45,11 @@ public class EntriesController {
             @Param(value = "query") String query,
             Pageable pageable
     ) {
-        QueryBuilder queryBuilder = moreLikeThisQuery("name", "value").addLikeText(query);
+        BoolQueryBuilder builder = boolQuery()
+                .should(QueryBuilders.fuzzyQuery("name", query))
+                .should(QueryBuilders.fuzzyQuery("value", query));
 
-        Page<Entry> foundEntries = entries.search(queryBuilder, pageable);
+        Page<Entry> foundEntries = entries.search(builder, pageable);
         return ResponseEntity.ok(new Resource<>(
                 foundEntries.map(mapper::map),
                 linkTo(methodOn(EntriesController.class).entries(null)).withSelfRel()
