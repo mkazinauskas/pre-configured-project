@@ -3,6 +3,11 @@ package project.elastic.search.elastic.search.elastic.search.domain.entry
 import groovy.transform.PackageScope
 import org.springframework.data.annotation.Id
 import org.springframework.data.elasticsearch.annotations.Document
+import org.springframework.data.elasticsearch.annotations.Field
+import org.springframework.data.elasticsearch.annotations.FieldIndex
+import org.springframework.data.elasticsearch.annotations.FieldType
+import org.springframework.data.elasticsearch.annotations.InnerField
+import org.springframework.data.elasticsearch.annotations.MultiField
 
 import static org.apache.commons.lang.RandomStringUtils.randomAlphanumeric
 
@@ -14,8 +19,10 @@ class Entry {
 
     private String uniqueId = randomAlphanumeric(40)
 
+    @Field(type = FieldType.String, index = FieldIndex.analyzed)
     String name
 
+    @Field(type = FieldType.String, index = FieldIndex.analyzed)
     String value
 
     @PackageScope

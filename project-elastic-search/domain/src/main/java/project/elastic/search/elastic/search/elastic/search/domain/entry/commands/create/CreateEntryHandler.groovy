@@ -1,4 +1,4 @@
-package project.elastic.search.elastic.search.elastic.search.domain.entry.commands
+package project.elastic.search.elastic.search.elastic.search.domain.entry.commands.create
 
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
