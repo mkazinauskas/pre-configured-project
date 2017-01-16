@@ -6,8 +6,6 @@ import org.springframework.data.elasticsearch.annotations.Document
 import org.springframework.data.elasticsearch.annotations.Field
 import org.springframework.data.elasticsearch.annotations.FieldIndex
 import org.springframework.data.elasticsearch.annotations.FieldType
-import org.springframework.data.elasticsearch.annotations.InnerField
-import org.springframework.data.elasticsearch.annotations.MultiField
 
 import static org.apache.commons.lang.RandomStringUtils.randomAlphanumeric
 
