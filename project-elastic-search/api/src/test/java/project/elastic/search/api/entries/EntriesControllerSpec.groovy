@@ -7,7 +7,6 @@ import org.springframework.boot.test.web.client.TestRestTemplate
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.test.context.ContextConfiguration
-import project.elastic.search.elastic.search.elastic.search.domain.entry.Entries
 import project.elastic.search.elastic.search.elastic.search.domain.entry.commands.create.CreateEntry
 import project.elastic.search.elastic.search.elastic.search.domain.entry.commands.create.CreateEntryHandler
 import project.elastic.search.elastic.search.elastic.search.domain.entry.commands.delete.DeleteEntry
@@ -29,9 +28,6 @@ class EntriesControllerSpec extends Specification {
 
     @Autowired
     private DeleteEntryHandler deleteEntryHandler
-
-    @Autowired
-    private Entries entries
 
     def 'should find entries'() {
         given:
@@ -65,22 +61,22 @@ class EntriesControllerSpec extends Specification {
         cleanup:
             deleteEntryHandler.handle(new DeleteEntry(uniqueId: uniqueId))
         where:
-            name                             | value                             | query
-            "name ${random(10)}"             | ''                                | 'name'
-            "${random(10)} name"             | ''                                | 'name'
+            name                         | value                        | query
+            "name ${random(10)}"         | ''                           | 'name'
+            "${random(10)} name"         | ''                           | 'name'
 //            "name${random(10)}"              | ''                                | 'name'
 //            "${random(10)}name"              | ''                                | 'name'
-            "first ${random(10)} second"     | ''                                | 'first second'
+            "first ${random(10)} second" | ''                           | 'first second'
 //            "first${random(10)}second"       | ''                                | 'first second'
-            "first ${random(10)} second"     | ''                                | 'first third'
+            "first ${random(10)} second" | ''                           | 'first third'
 //            "${random(10)}name${random(10)}" | ''                                | 'name'
-            ''                               | "value ${random(10)}"             | 'value'
-            ''                               | "${random(10)} value"             | 'value'
+            ''                           | "value ${random(10)}"        | 'value'
+            ''                           | "${random(10)} value"        | 'value'
 //            ''                               | "value${random(10)}"              | 'value'
 //            ''                               | "${random(10)}value"              | 'value'
-            ''                               | "first ${random(10)} second"      | 'first second'
+            ''                           | "first ${random(10)} second" | 'first second'
 //            ''                               | "first${random(10)}second"        | 'first second'
-            ''                               | "first ${random(10)} second"      | 'first third'
+            ''                           | "first ${random(10)} second" | 'first third'
 //            ''                               | "${random(10)}value${random(10)}" | 'value'
     }
 }
