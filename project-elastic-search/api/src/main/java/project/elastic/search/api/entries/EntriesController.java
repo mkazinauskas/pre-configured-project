@@ -46,10 +46,9 @@ public class EntriesController {
                 boolQuery()
                         .should(QueryBuilders.prefixQuery("name", query))
                         .should(QueryBuilders.queryStringQuery(query).field("name").allowLeadingWildcard(true))
-                        .should(QueryBuilders.matchQuery("name", query))
                         .should(QueryBuilders.prefixQuery("value", query))
                         .should(QueryBuilders.queryStringQuery(query).field("value").allowLeadingWildcard(true))
-                        .should(QueryBuilders.matchQuery("value", query));
+                ;
 
         Page<Entry> foundEntries = entries.search(builder, pageable);
         return ResponseEntity.ok(new Resource<>(
