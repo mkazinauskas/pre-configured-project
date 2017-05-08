@@ -1,6 +1,6 @@
 buildscript {
     ext {
-        springBootVersion = '1.4.3.RELEASE'
+        springBootVersion = '1.4.6.RELEASE'
     }
 
     repositories {
@@ -25,6 +25,7 @@ buildScan {
 }
 
 apply plugin: 'idea'
+apply plugin: 'project-report'
 
 idea {
     project {
@@ -39,5 +40,5 @@ apply from: "${rootDir}/gradle/subprojects.gradle"
 apply from: "${rootDir}/gradle/project-config.gradle"
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '3.2.1'
+    gradleVersion = '3.5'
 }

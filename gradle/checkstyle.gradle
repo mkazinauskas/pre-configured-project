@@ -1,7 +1,7 @@
 apply plugin: 'checkstyle'
 
 checkstyle {
-    configFile = new File(rootDir, 'gradle/checkstyle/checkstyle.xml')
+    configFile = rootProject.file('gradle/checkstyle/checkstyle.xml')
 }
 
 checkstyleMain.exclude '**/jaxb/**'

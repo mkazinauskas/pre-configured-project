@@ -3,9 +3,9 @@
 # Pre configured project for quick start
 
 ## Used tools
-* Spring Boot (1.4.3.RELEASE)
+* Spring Boot
 * Spring Cloud
-* Gradle (3.2.1)
+* Gradle
   * FindBugs (plugin)
   * CheckStyle (plugin)
   * CodeNarc (plugin)
