@@ -1,6 +1,11 @@
+info:
+  component: Project a UI
 spring:
   application:
     name: projecta-ui
   cloud:
     config:
       uri: http://localhost:8888
+      username: configUsername
+      password: configPassword
+      fail-fast: true

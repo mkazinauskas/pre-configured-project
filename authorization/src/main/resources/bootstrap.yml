@@ -1,6 +1,11 @@
+info:
+  component: Authorization service
 spring:
   application:
     name: authorization-service
   cloud:
     config:
       uri: http://localhost:8888
+      username: configUsername
+      password: configPassword
+      fail-fast: true

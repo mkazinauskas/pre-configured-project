@@ -1,4 +1,11 @@
+info:
+  component: Project elastic search
 spring:
+  application:
+    name: project-elastic-search-api
   cloud:
     config:
       uri: http://localhost:8888
+      username: configUsername
+      password: configPassword
+      fail-fast: true

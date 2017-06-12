@@ -1,8 +1,15 @@
+info:
+  component: Project a
 spring:
+  application:
+    name: projecta-api
   cloud:
     config:
       uri: http://localhost:8888
+      username: configUsername
+      password: configPassword
+      fail-fast: true
 security:
   oauth2:
     resource:
-      userInfoUri: http://localhost:9999/uaa/user
+      userInfoUri: http://authorization-service:9999/uaa/user

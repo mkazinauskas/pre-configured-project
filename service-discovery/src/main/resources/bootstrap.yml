@@ -1,6 +1,11 @@
+info:
+  component: Service discovery
 spring:
   application:
     name: service-discovery
   cloud:
     config:
       uri: http://localhost:8888
+      username: configUsername
+      password: configPassword
+      fail-fast: true
