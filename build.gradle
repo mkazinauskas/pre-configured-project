@@ -38,7 +38,3 @@ idea {
 apply from: "${rootDir}/gradle/libs.gradle"
 apply from: "${rootDir}/gradle/subprojects.gradle"
 apply from: "${rootDir}/gradle/project-config.gradle"
-
-task wrapper(type: Wrapper) {
-    gradleVersion = '3.5'
-}
