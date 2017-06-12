@@ -10,5 +10,7 @@ spring:
       server:
         git:
           uri: https://github.com/modestukasai/pre-configured-project-config
+        native:
+          fail-on-error: true
       username: configUsername
       password: configPassword
