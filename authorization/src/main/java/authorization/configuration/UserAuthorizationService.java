@@ -14,9 +14,9 @@ import java.util.Optional;
 @Component
 public class UserAuthorizationService implements UserDetailsService {
 
-    private Users users;
+    private final Users users;
 
-    private UserToUserDetailsMapper mapper;
+    private final UserToUserDetailsMapper mapper;
 
     @Autowired
     public UserAuthorizationService(Users users, UserToUserDetailsMapper mapper) {

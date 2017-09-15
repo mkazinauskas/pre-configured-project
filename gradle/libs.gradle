@@ -31,7 +31,7 @@ ext.libs = [
                 ]
         ],
         cloud         : [
-                dependencies: "org.springframework.cloud:spring-cloud-dependencies:Brixton.RELEASE",
+                dependencies: "org.springframework.cloud:spring-cloud-dependencies:Dalston.SR3",
                 starter     : [
                         oauth2: 'org.springframework.cloud:spring-cloud-starter-oauth2'
                 ]
