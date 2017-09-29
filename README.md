@@ -29,3 +29,7 @@ Launch in this order (bootRun task):
 4. `project-a:api`
 5. `gateway`
 
+
+// CONTINUE 
+https://github.com/tinmegali/Using-Spring-Oauth2-to-secure-REST
+

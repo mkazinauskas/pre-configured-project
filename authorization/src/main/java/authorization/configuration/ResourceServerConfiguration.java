@@ -2,12 +2,13 @@ package authorization.configuration;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configurers.ResourceServerSecurityConfigurer;
+import org.springframework.security.oauth2.provider.token.DefaultTokenServices;
 import org.springframework.security.oauth2.provider.token.TokenStore;
-import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
 import org.springframework.security.web.util.matcher.RequestMatcher;
 
 import javax.servlet.http.HttpServletRequest;
@@ -15,37 +16,61 @@ import javax.servlet.http.HttpServletRequest;
 @Configuration
 @EnableResourceServer
 class ResourceServerConfiguration extends ResourceServerConfigurerAdapter {
+    private final String resourceId;
 
-    private final JwtAccessTokenConverter jwtAccessTokenConverter;
+    private final DefaultTokenServices tokenServices;
 
     private final TokenStore tokenStore;
 
-    private final String resourceId;
-
-    public ResourceServerConfiguration(JwtAccessTokenConverter jwtAccessTokenConverter,
-                                       TokenStore tokenStore,
-                                       @Value("${spring.application.name}") String applicationName) {
-        this.jwtAccessTokenConverter = jwtAccessTokenConverter;
+    public ResourceServerConfiguration(@Value("${security.oauth2.resource.id}")
+                                               String resourceId,
+                                       DefaultTokenServices tokenServices,
+                                       TokenStore tokenStore) {
+        this.resourceId = resourceId;
+        this.tokenServices = tokenServices;
         this.tokenStore = tokenStore;
-        this.resourceId = applicationName;
     }
 
     @Override
     public void configure(ResourceServerSecurityConfigurer resources) {
-        resources.resourceId(resourceId).tokenStore(tokenStore);
+        resources
+                .resourceId(resourceId)
+                .tokenServices(tokenServices)
+                .tokenStore(tokenStore);
     }
 
     @Override
     public void configure(HttpSecurity http) throws Exception {
-        // @formatter:off
+//        http
+//                .csrf().disable()
+//                .requestMatcher(new OAuthRequestedMatcher())
+//                .authorizeRequests()
+//                .antMatchers("/admin/**", "/user/**")
+//                .authenticated();
+
         http
-                .csrf().disable()
                 .requestMatcher(new OAuthRequestedMatcher())
+                .csrf().disable()
+                .anonymous().disable()
                 .authorizeRequests()
-                .antMatchers("/admin/**", "/user/**")
-                .authenticated();
-        // @formatter:on
+                .antMatchers(HttpMethod.OPTIONS).permitAll()
+                .antMatchers("/api/hello").access("hasAnyRole('USER')")
+                .antMatchers("/api/me").hasAnyRole("USER", "ADMIN")
+                .antMatchers("/api/admin").hasRole("ADMIN")
+                .antMatchers("/api/registerUser").hasAuthority("ROLE_REGISTER")
+                .antMatchers("/api/**").authenticated();
     }
+
+//    private static class OAuthRequestedMatcher implements RequestMatcher {
+//        public boolean matches(HttpServletRequest request) {
+//            // Determine if the resource called is "/api/**"
+//            String path = request.getServletPath();
+//            if (path.length() >= 5) {
+//                path = path.substring(0, 5);
+//                return path.equals("/api/");
+//            } else return false;
+//        }
+//    }
 
     private static class OAuthRequestedMatcher implements RequestMatcher {
         public boolean matches(HttpServletRequest request) {
@@ -56,7 +81,5 @@ class ResourceServerConfiguration extends ResourceServerConfigurerAdapter {
             return haveOauth2Token || haveAccessToken;
         }
     }
-
-
 }
 

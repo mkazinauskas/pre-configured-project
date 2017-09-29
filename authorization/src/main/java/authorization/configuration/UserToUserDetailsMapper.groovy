@@ -4,12 +4,10 @@ import authorization.domain.user.User
 import groovy.transform.CompileStatic
 import org.springframework.security.core.authority.SimpleGrantedAuthority
 import org.springframework.security.core.userdetails.UserDetails
-import org.springframework.stereotype.Component
 
-@Component
 @CompileStatic
 class UserToUserDetailsMapper {
-    UserDetails map(User user) {
+    static UserDetails map(User user) {
         new org.springframework.security.core.userdetails.User(
                 user.email,
                 user.encodedPassword,

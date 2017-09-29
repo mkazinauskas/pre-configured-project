@@ -1,4 +1,4 @@
 include 'gateway', 'service-discovery', 'configuration', 'authorization'
-include 'project-a', 'project-a:domain', 'project-a:service', 'project-a:api', 'project-a:ui'
+include 'project-a', 'project-a:domain', 'project-a:api', 'project-a:ui'
 include 'project-elastic-search', 'project-elastic-search:api', 'project-elastic-search:domain'
 

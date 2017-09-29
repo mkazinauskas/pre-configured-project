@@ -16,12 +16,9 @@ public class UserAuthorizationService implements UserDetailsService {
 
     private final Users users;
 
-    private final UserToUserDetailsMapper mapper;
-
     @Autowired
-    public UserAuthorizationService(Users users, UserToUserDetailsMapper mapper) {
+    public UserAuthorizationService(Users users) {
         this.users = users;
-        this.mapper = mapper;
     }
 
     @Override
@@ -30,7 +27,7 @@ public class UserAuthorizationService implements UserDetailsService {
         Optional<User> foundUserByEmail = users.findByEmail(username);
 
         return foundUserByEmail
-                .map(mapper::map)
+                .map(UserToUserDetailsMapper::map)
                 .orElseThrow(() -> new UsernameNotFoundException(username));
     }
 }
