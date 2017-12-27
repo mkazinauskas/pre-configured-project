@@ -1,14 +1,14 @@
 ext.runnableProjects = [
-        project(':authorization'),
+        //project(':authorization'),
         project(':configuration'),
         project(':gateway'),
         project(':service-discovery'),
-        project(':project-a:api'),
-        project(':project-a:ui'),
+        project(':resource:api'),
+        project(':resource:ui'),
 ]
 
 ext.rootProjects = [
-        project(':project-a')
+        project(':resource')
 ]
 
 configure(runnableProjects) {

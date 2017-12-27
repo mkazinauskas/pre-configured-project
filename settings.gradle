@@ -1,2 +1,2 @@
-include 'gateway', 'service-discovery', 'configuration', 'authorization'
-include 'project-a', 'project-a:domain', 'project-a:api', 'project-a:ui'
+include 'gateway', 'service-discovery', 'configuration'//, 'authorization'
+include 'resource', 'resource:domain', 'resource:api', 'resource:ui'

@@ -1,4 +1,4 @@
-configure(project(':project-a:domain')) {
+configure(project(':resource:domain')) {
     dependencies {
         compile libs.boot.starter.jpa
         compile libs.liquibase
@@ -10,9 +10,9 @@ configure(project(':project-a:domain')) {
     }
 }
 
-configure(project(':project-a:api')) {
+configure(project(':resource:api')) {
     jar {
-        baseName = 'project-a-api'
+        baseName = 'resource-api'
     }
 
     dependencies {
@@ -26,7 +26,7 @@ configure(project(':project-a:api')) {
     }
 }
 
-configure(project(':project-a:ui')) {
+configure(project(':resource:ui')) {
     dependencies {
         compile libs.boot.starter.eurekaClient
         compile libs.cloud.starter.oauth2
