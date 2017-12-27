@@ -26,7 +26,7 @@ Launch in this order (bootRun task):
 1. `configuration`
 2. `service-discovery`
 3. `authorization` 
-4. `project-a:api`
+4. `resource:api`
 5. `gateway`
 
 
