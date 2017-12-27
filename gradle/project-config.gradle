@@ -5,12 +5,10 @@ ext.runnableProjects = [
         project(':service-discovery'),
         project(':project-a:api'),
         project(':project-a:ui'),
-        project(':project-elastic-search:api')
 ]
 
 ext.rootProjects = [
-        project(':project-a'),
-        project(':project-elastic-search')
+        project(':project-a')
 ]
 
 configure(runnableProjects) {

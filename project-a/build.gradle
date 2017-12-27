@@ -10,19 +10,12 @@ configure(project(':project-a:domain')) {
     }
 }
 
-configure(project(':project-a:service')) {
-    dependencies {
-        compile project(':project-a:domain')
-    }
-}
-
 configure(project(':project-a:api')) {
     jar {
         baseName = 'project-a-api'
     }
 
     dependencies {
-        compile project(':project-a:service')
         compile libs.boot.starter.configClient
         compile libs.boot.starter.actuator
         compile libs.boot.starter.eurekaClient
